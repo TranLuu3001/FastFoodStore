@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\FastFoodStore_API.props" />
+</Project>

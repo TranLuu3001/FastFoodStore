@@ -1,0 +1,184 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@section Css{
+    <style>
+        /* Đặt kích thước cố định cho tất cả hình ảnh trong phần tử food_item */
+        .single_food_item img {
+            width: 100%; /* Đặt chiều rộng bằng 100% của phần tử cha */
+            height: 200px; /* Đặt chiều cao cố định cho tất cả hình ảnh */
+            width: 200px;
+            object-fit: cover; /* Đảm bảo hình ảnh sẽ lấp đầy khung mà không bị méo */
+        }
+
+        .single_food_item {
+            margin-bottom: 20px; /* Tạo khoảng cách giữa các item */
+        }
+    </style>
+}
+
+@model List<FastFoodStore_Client.Models.CategoryWithFoodItem>
+<!-- breadcrumb start-->
+<section class="breadcrumb breadcrumb_bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb_iner text-center">
+                    <div class="breadcrumb_iner_item">
+                        <h2>Food Menu</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="food_menu gray_bg">
+    <div class="container">
+        <div class="search-box mb-4 mt-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <input id="search-name" type="text" class="form-control" placeholder="Tìm theo tên sản phẩm...">
+                </div>
+                <div class="col-md-6">
+                    <input id="search-price" type="number" class="form-control" placeholder="Tìm sản phẩm có giá nhỏ hơn...">
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-between">
+            <div class="col-lg-5">
+                <div class="section_tittle">
+                    <p>Popular Menu</p>
+                    <h2>Delicious Food Menu</h2>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="nav nav-tabs food_menu_nav" id="myTab" role="tablist">
+                    <!-- Thêm tab "All" -->
+                    <a class="active" id="All-tab" data-toggle="tab" href="#All" role="tab" aria-controls="All" aria-selected="false">
+                        All <img src="~/img/icon/play.svg" alt="all">
+                    </a>
+
+                    <!-- Tạo các tab động từ danh mục -->
+                    @foreach (var categoryGroup in Model)
+                    {
+                        <a id="@categoryGroup.Category.Replace(" ", "-")-tab" data-toggle="tab" href="#@categoryGroup.Category.Replace(" ", "-")" role="tab" aria-controls="@categoryGroup.Category.Replace(" ", "-")" aria-selected="false">
+                            @categoryGroup.Category <img src="~/img/icon/play.svg" alt="@categoryGroup.Category">
+                        </a>
+
+                        
+                    }
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="tab-content" id="myTabContent">
+                    <!-- Nội dung của tab "All" -->
+                    <div class="tab-pane fade show active single-member" id="All" role="tabpanel" aria-labelledby="All-tab">
+                        <div class="row">
+                            @foreach (var categoryGroup in Model)
+                            {
+                                @foreach (var product in categoryGroup.FoodItems)
+                                {
+                                    <div class="col-sm-6 col-lg-6">
+                                        <div class="single_food_item media">
+                                            <a asp-controller="Home" asp-action="Detail" asp-route-id="@product.FoodId">
+                                                <img src="~/img/food_menu/@product.ImageURL" class="mr-3" alt="@product.FoodName">
+                                            </a>
+                                            <div class="media-body align-self-center">
+                                                <h3>@product.FoodName</h3>
+                                                <p>@product.Description</p>
+                                                <h5>@product.Price.ToString("C0", new System.Globalization.CultureInfo("vi-VN"))</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+
+                    <!-- Tạo nội dung của các tab dựa trên danh sách sản phẩm theo danh mục -->
+                    @foreach (var categoryGroup in Model)
+                    {
+                        <div class="tab-pane fade single-member" id="@categoryGroup.Category.Replace(" ", "-")" role="tabpanel" aria-labelledby="@categoryGroup.Category.Replace(" ", "-")-tab">
+                            <div class="row">
+                                @foreach (var product in categoryGroup.FoodItems)
+                                {
+                                    <div class="col-sm-6 col-lg-6">
+                                        <div class="single_food_item media">
+                                            <a asp-controller="Home" asp-action="Detail" asp-route-id="@product.FoodId">
+                                                <img src="~/img/food_menu/@product.ImageURL" class="mr-3" alt="@product.FoodName">
+                                            </a>
+                                            <div class="media-body align-self-center">
+                                                <h3>@product.FoodName</h3>
+                                                <p>@product.Description</p>
+                                                <h5>@product.Price</h5>
+@*                                                 <h5>@product.Price.ToString("C0", new System.Globalization.CultureInfo("vi-VN"))</h5> *@
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- food_menu part end-->
+<!--::chefs_part end::-->
+<!-- intro_video_bg start-->
+<section class="intro_video_bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="intro_video_iner text-center">
+                    <h2>Expect The Best</h2>
+                    <div class="intro_video_icon">
+                        <a id="play-video_1" class="video-play-button popup-youtube"
+                           href="https://www.youtube.com/watch?v=pBFQdxA-apI">
+                            <span class="ti-control-play"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- intro_video_bg part start-->
+@section scripts{
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchNameInput = document.getElementById('search-name');
+            const searchPriceInput = document.getElementById('search-price');
+            const foodItems = document.querySelectorAll('.single_food_item'); // Chọn tất cả các sản phẩm
+
+            function filterProducts() {
+                const searchName = searchNameInput.value.toLowerCase();
+                const searchPrice = parseFloat(searchPriceInput.value);
+
+                foodItems.forEach(item => {
+                    const productName = item.querySelector('h3').textContent.toLowerCase();
+                    const productPrice = parseFloat(item.querySelector('h5').textContent.replace(/[^\d.-]/g, '')); // Loại bỏ ký tự không phải số
+
+                    // Kiểm tra nếu tên và giá khớp với điều kiện tìm kiếm
+                    const matchesName = productName.includes(searchName);
+                    const matchesPrice = isNaN(searchPrice) || productPrice <= searchPrice;
+
+                    // Hiển thị hoặc ẩn sản phẩm dựa trên kết quả tìm kiếm
+                    if (matchesName && matchesPrice) {
+                        item.parentElement.style.display = '';
+                    } else {
+                        item.parentElement.style.display = 'none';
+                    }
+                });
+            }
+
+            // Thêm sự kiện khi người dùng nhập tên hoặc giá
+            searchNameInput.addEventListener('input', filterProducts);
+            searchPriceInput.addEventListener('input', filterProducts);
+        });
+    </script>
+
+}

@@ -1,0 +1,79 @@
+﻿@model FastFoodStore_Client.Models.FoodItem
+
+@{
+    ViewData["Title"] = "Detail Food Item";
+}
+
+<div class="container tm-mt-big tm-mb-big">
+    <div class="row">
+        <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
+            <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="tm-block-title d-inline-block">Food Item Details</h2>
+                    </div>
+                </div>
+
+                <form method="post" class="tm-edit-product-form" enctype="multipart/form-data">
+                    @if (!ViewData.ModelState.IsValid)
+                    {
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                                {
+                                    <li>@error.ErrorMessage</li>
+                                }
+                            </ul>
+                        </div>
+                    }
+
+                        <input asp-for="FoodId" class="form-control" type="hidden" />
+
+                    <!-- Tên món ăn -->
+                    <div class="form-group">
+                        <label asp-for="FoodName" class="control-label">Food Name</label>
+                        <input asp-for="FoodName" class="form-control" type="text" disabled />
+                    </div>
+
+                    <!-- Danh mục -->
+                    <div class="form-group">
+                        <label asp-for="Category" class="control-label">Category</label>
+                        <input asp-for="Category" class="form-control" type="text" disabled />
+                    </div>
+
+                    <!-- Giá món ăn -->
+                    <div class="form-group">
+                        <label asp-for="Price" class="control-label">Price</label>
+                        <input asp-for="Price" class="form-control" type="text" disabled />
+                    </div>
+
+                    <!-- Mô tả -->
+                    <div class="form-group">
+                        <label asp-for="Description" class="control-label">Description</label>
+                        <textarea asp-for="Description" class="form-control" rows="4" disabled></textarea>
+                    </div>
+
+                    <!-- Hình ảnh -->
+                    <div class="form-group">
+                        <label class="control-label">Image</label>
+                        <div>
+                            @if (!string.IsNullOrEmpty(Model.ImageURL))
+                            {
+                                <img src="~/img/food_menu/@Model.ImageURL" alt="Food Image" style="max-width: 200px; max-height: 200px;" />
+                            }
+                            else
+                            {
+                                <p>No image available</p>
+                            }
+                        </div>
+                    </div>
+
+                    <!-- Back to List button -->
+                    <div class="form-group">
+                        <a href="@Url.Action("Index")" class="btn btn-secondary">Back to List</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,151 @@
+﻿
+@model IEnumerable<FastFoodStore_Client.Models.PaymentDetailViewModel>
+@section Css{
+<style>
+    .container {
+    margin: auto;
+    }
+
+    .order-info {
+    background: #e67e22;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    }
+
+    .order-info p {
+    margin: 5px 0;
+    }
+
+    .products-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    }
+
+    .products-table th,
+    .products-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    }
+
+    .products-table th {
+    background: #d35400;
+    color: white;
+    }
+
+    .total {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 10px;
+    }
+
+    .buttons {
+    display: flex;
+    justify-content: space-between;
+    }
+
+    .button {
+    padding: 10px 15px;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    }
+
+    .btn-list {
+    background: #b9770e;
+    }
+
+    .btn-cancel {
+    background: #a04000;
+    }
+
+    .btn-pay {
+    background: #e67e22;
+    }
+    h1{  
+    justify-content: space-between;
+    }
+</style>
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông Tin Đơn Hàng</title>
+</head>
+
+<body>
+
+    <div class="container">
+            <h1 style="color:orange">Lịch sử đặt hàng</h1>
+        @foreach(var x in Model)
+        {
+            <div class="order-info">
+                <p><strong>Tên khách hàng:</strong> @x.FullName</p>
+                <p><strong>Ngày đặt hàng:</strong> @x.PaymentDate</p>
+                <p><strong>Trạng thái đặt hàng:</strong> @x.PaymentStatus</p>
+                <p><strong>Phương thức thanh toán:</strong> @x.PaymentMethod</p>
+                <p><strong>Địa chỉ giao hàng:</strong> @x.DeliveryAddress</p>
+                <input type="hidden" value="@x.OrderId" />
+                <input type="hidden" value="@x.PaymentId" />
+            </div>
+        }
+        
+@* 
+        <table class="products-table">
+            <tr>
+                <th>#</th>
+                <th>Tên sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Đơn giá</th>
+                <th>Tổng tiền</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Chicken Burger</td>
+                <td>10</td>
+                <td>50.000 đ</td>
+                <td>500.000 đ</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Fish Fillet Sandwich</td>
+                <td>1</td>
+                <td>60.000 đ</td>
+                <td>60.000 đ</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Coca-Cola</td>
+                <td>8</td>
+                <td>90.000 đ</td>
+                <td>720.000 đ</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>BBQ Chicken Pizza</td>
+                <td>5</td>
+                <td>70.000 đ</td>
+                <td>350.000 đ</td>
+            </tr>
+        </table>
+
+        <p class="total">Tổng cộng: 1.634.324 đ</p>
+
+        <div class="buttons">
+            <button class="button btn-list">Danh sách</button>
+            <button class="button btn-cancel">Hủy</button>
+            <button class="button btn-pay">Thanh toán</button>
+        </div> *@
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,702 @@
+[
+  {
+    "ContainingType": "FastFoodStore_API.Areas.Admin.Controllers.ComboController",
+    "Method": "Create",
+    "RelativePath": "api/Admin/Combo/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ComboId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "ComboName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Price",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageURL",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CreatedAt",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "ComboItem",
+        "Type": "System.Collections.Generic.ICollection\u00601[[FastFoodStore_API.Models.ComboItem, FastFoodStore_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "OrderCombo",
+        "Type": "System.Collections.Generic.ICollection\u00601[[FastFoodStore_API.Models.OrderCombo, FastFoodStore_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "imageFileName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodStore_API.Areas.Admin.Controllers.ComboController",
+    "Method": "DeleteConfirmed",
+    "RelativePath": "api/Admin/Combo/DeleteConfirmed/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodStore_API.Areas.Admin.Controllers.ComboController",
+    "Method": "Details",
+    "RelativePath": "api/Admin/Combo/Details/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodStore_API.Areas.Admin.Controllers.ComboController",
+    "Method": "Edit",
+    "RelativePath": "api/Admin/Combo/Edit/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "ComboId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "ComboName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Price",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageURL",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CreatedAt",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "ComboItem",
+        "Type": "System.Collections.Generic.ICollection\u00601[[FastFoodStore_API.Models.ComboItem, FastFoodStore_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "OrderCombo",
+        "Type": "System.Collections.Generic.ICollection\u00601[[FastFoodStore_API.Models.OrderCombo, FastFoodStore_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "imageFileName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodStore_API.Areas.Admin.Controllers.ComboController",
+    "Method": "Index",
+    "RelativePath": "api/Admin/Combo/Index",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodStore_API.Controllers.FoodItemController",
+    "Method": "Create",
+    "RelativePath": "api/Admin/FoodItem/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "FoodId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "FoodName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Price",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Category",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageURL",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CreatedAt",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "ComboItem",
+        "Type": "System.Collections.Generic.ICollection\u00601[[FastFoodStore_API.Models.ComboItem, FastFoodStore_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "OrderDetail",
+        "Type": "System.Collections.Generic.ICollection\u00601[[FastFoodStore_API.Models.OrderDetail, FastFoodStore_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Cart",
+        "Type": "System.Collections.Generic.ICollection\u00601[[FastFoodStore_API.Models.Cart, FastFoodStore_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "imageFileName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodStore_API.Controllers.FoodItemController",
+    "Method": "DeleteConfirmed",
+    "RelativePath": "api/Admin/FoodItem/DeleteConfirmed/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodStore_API.Controllers.FoodItemController",
+    "Method": "Details",
+    "RelativePath": "api/Admin/FoodItem/Details/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodStore_API.Controllers.FoodItemController",
+    "Method": "Edit",
+    "RelativePath": "api/Admin/FoodItem/Edit/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "FoodId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "FoodName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Price",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Category",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageURL",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CreatedAt",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "ComboItem",
+        "Type": "System.Collections.Generic.ICollection\u00601[[FastFoodStore_API.Models.ComboItem, FastFoodStore_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "OrderDetail",
+        "Type": "System.Collections.Generic.ICollection\u00601[[FastFoodStore_API.Models.OrderDetail, FastFoodStore_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Cart",
+        "Type": "System.Collections.Generic.ICollection\u00601[[FastFoodStore_API.Models.Cart, FastFoodStore_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "imageFileName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodStore_API.Controllers.FoodItemController",
+    "Method": "Index",
+    "RelativePath": "api/Admin/FoodItem/Index",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodStore_API.Areas.Admin.Controllers.HomeController",
+    "Method": "Detail",
+    "RelativePath": "api/Admin/Home/Detail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodStore_API.Areas.Admin.Controllers.HomeController",
+    "Method": "Login",
+    "RelativePath": "api/Admin/Home/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "password",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodStore_API.Areas.Admin.Controllers.HomeController",
+    "Method": "Logout",
+    "RelativePath": "api/Admin/Home/Logout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodStore_API.Areas.Admin.Controllers.UserController",
+    "Method": "Create",
+    "RelativePath": "api/Admin/User/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "enduser",
+        "Type": "FastFoodStore_API.Models.User",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodStore_API.Areas.Admin.Controllers.UserController",
+    "Method": "DeleteConfirmed",
+    "RelativePath": "api/Admin/User/DeleteConfirmed/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodStore_API.Areas.Admin.Controllers.UserController",
+    "Method": "Detail",
+    "RelativePath": "api/Admin/User/Detail/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodStore_API.Areas.Admin.Controllers.UserController",
+    "Method": "Index",
+    "RelativePath": "api/Admin/User/Index",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodStore_API.Areas.Admin.Controllers.UserController",
+    "Method": "Update",
+    "RelativePath": "api/Admin/User/Update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "FastFoodStore_API.Models.User",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodStore_API.Controllers.HomeController",
+    "Method": "AddCart",
+    "RelativePath": "api/Home/AddCart",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "FoodId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "quantity",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodStore_API.Controllers.HomeController",
+    "Method": "Cart",
+    "RelativePath": "api/Home/Cart",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodStore_API.Controllers.HomeController",
+    "Method": "ConfirmEmail",
+    "RelativePath": "api/Home/ConfirmEmail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "token",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodStore_API.Controllers.HomeController",
+    "Method": "DeleteFoodInCart",
+    "RelativePath": "api/Home/DeleteFoodInCart",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "foodItemId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "quantity",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodStore_API.Controllers.HomeController",
+    "Method": "Detail",
+    "RelativePath": "api/Home/Detail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodStore_API.Controllers.HomeController",
+    "Method": "DetailUser",
+    "RelativePath": "api/Home/DetailUser",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodStore_API.Controllers.HomeController",
+    "Method": "Login",
+    "RelativePath": "api/Home/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "password",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "rememberMe",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodStore_API.Controllers.HomeController",
+    "Method": "Logout",
+    "RelativePath": "api/Home/Logout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodStore_API.Controllers.HomeController",
+    "Method": "Menu",
+    "RelativePath": "api/Home/Menu",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodStore_API.Controllers.HomeController",
+    "Method": "PaymentIformation",
+    "RelativePath": "api/Home/PaymentIformation",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodStore_API.Controllers.HomeController",
+    "Method": "Register",
+    "RelativePath": "api/Home/Register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "enduser",
+        "Type": "FastFoodStore_API.Models.User",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodStore_API.Controllers.HomeController",
+    "Method": "UpdateCustomer",
+    "RelativePath": "api/Home/UpdateCustomer",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "FastFoodStore_API.Models.User",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodStore_API.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[FastFoodStore_API.WeatherForecast, FastFoodStore_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]

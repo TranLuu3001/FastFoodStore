@@ -1,0 +1,306 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model FastFoodStore_Client.Models.User
+@section Css{
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+}
+<div class="row d-flex justify-content-center mt-4 mb-4">
+<div class="login-box" style="max-width: 450px; width: 100%;">
+    <!-- /.login-logo -->
+    <div class="card card-outline card-primary">
+        <div class="card-header text-center">
+            <a href="index.html" style="text-decoration: none;" class="h1"><b>Đăng nhập</b></a>
+        </div>
+        <div class="card-body">
+            <p class="login-box-msg">Đăng nhập để sử dụng</p>
+
+            <form asp-action="Login" method="post">
+                <div class="form-group">
+                    <!-- <label for="email">Email</label> -->
+                    <div class="input-group mb-3">
+                        <input type="email" id="email" name="email" class="form-control"
+                                   placeholder="Vui lòng nhập Email" autocomplete="email" value="tranluumy@gmail.com"
+                               required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <!-- <label for="password">Mật khẩu</label> -->
+                    <div class="input-group mb-3">
+                        <input type="password" id="password" name="password"
+                                   class="form-control" placeholder="Vui lòng nhập mật khẩu" value="Lmt@123"
+                               autocomplete="current-password" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row align-items-center">
+                    <div class="col-8">
+                        <div class="icheck-primary">
+                                <input type="checkbox" id="rememberMe" name="rememberMe">
+                                <label for="rememberMe">
+                                Nhớ mật khẩu
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-primary btn-block">
+                            Đăng nhập
+                        </button>
+                    </div>
+                </div>
+            </form>
+                @if (TempData["Announce"] != null)
+                {
+                    <div class="alert alert-success">
+                        @TempData["Announce"]
+                    </div>
+                }
+
+                @if (TempData["Announce1"] != null)
+                {
+                    <div class="alert alert-danger">
+                        @TempData["Announce1"]
+                    </div>
+                }
+
+                @if (!ViewData.ModelState.IsValid)
+                    {
+                        <div class="validation-summary-errors">
+                            @Html.ValidationSummary()
+                        </div>
+                    }
+
+            <!-- /.social-auth-links -->
+
+            <p class="mb-1">
+                <a href="#registerModal" class="text-primary" data-bs-toggle="modal" style="float: right; text-decoration: none;">
+                    Đăng
+                    ký
+                </a>
+            </p>
+
+            <!-- Modal -->
+            <div class="modal fade" id="registerModal" tabindex="-1"
+                 aria-labelledby="registerModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="registerModalLabel">Tài khoản</h5>
+                            <button type="button" class="btn-close"
+                                    data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Tab navigation -->
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="register-tab"
+                                            data-bs-toggle="tab" data-bs-target="#register"
+                                            type="button" role="tab">
+                                        Đăng ký
+                                    </button>
+                                </li>   
+                            </ul>
+
+                            <!-- Nội dung Tab -->
+                            <div class="tab-content mt-3" id="myTabContent">
+                                <!-- Nội dung Đăng ký -->
+                                <div class="tab-pane fade show active" id="register"
+                                     role="tabpanel" aria-labelledby="register-tab">
+                                    <div class="card-body">
+                                        <p class="login-box-msg">Đăng ký thành viên mới</p>
+
+                                            <form action="Register" method="post">
+                                            <div class="form-group">
+                                                <label for="fullname">Họ tên đầy đủ</label>
+                                                <div class="input-group mb-3">
+                                                    <input type="text" class="form-control"
+                                                          asp-for=FullName placeholder="Họ tên đầy đủ" value="LuuMyTran"
+                                                           required>
+                                                    <div class="input-group-append">
+                                                        <div class="input-group-text">
+                                                            <span class="fas fa-user"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="email">Email</label>
+                                                <div class="input-group mb-3">
+                                                    <input type="email" class="form-control"
+                                                           asp-for="Email" placeholder="Vui lòng nhập Email" value="tranluu@gmail.com"
+                                                           required>
+                                                    <div class="input-group-append">
+                                                        <div class="input-group-text">
+                                                            <span class="fas fa-envelope"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="password">Mật khẩu</label>
+                                                <div class="input-group mb-3">
+                                                    <input type="password" class="form-control"
+                                                           asp-for="PasswordHash"
+                                                               placeholder="Vui lòng nhập mật khẩu" value="Lmt@123"
+                                                           minlength="6" required>
+                                                    <div class="input-group-append">
+                                                        <div class="input-group-text">
+                                                            <span class="fas fa-lock"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="confirm-password">
+                                                    Nhập lại mật
+                                                    khẩu
+                                                </label>
+                                                <div class="input-group mb-3">
+                                                    <input type="password" class="form-control"
+                                                           asp-for="Password"
+                                                               placeholder="Nhập lại mật khẩu" required value="Lmt@123">
+                                                        <div class="input-group-append">
+                                                        <div class="input-group-text">
+                                                            <span class="fas fa-lock"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="phone">Số điện thoại</label>
+                                                <div class="input-group mb-3">
+                                                    <input type="text" class="form-control" asp-for="PhoneNumber"
+                                                           placeholder="Nhập số điện thoại" required value="0942301455">
+                                                    <div class="input-group-append">
+                                                        <div class="input-group-text">
+                                                            <span class="fas fa-phone"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                @* <div class="form-group">
+                                                    <label asp-for="Gender"></label>
+                                                    <div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" asp-for="Gender" value="0" checked>
+                                                            <label class="form-check-label">Nam</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" asp-for="Gender" value="1">
+                                                            <label class="form-check-label">Nữ</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" asp-for="Gender" value="2">
+                                                            <label class="form-check-label">Khác</label>
+                                                        </div>
+                                                    </div>
+                                                    <span asp-validation-for="Gender" class="text-danger"></span>
+                                                </div> *@
+
+                                            @* <div class="form-group">
+                                                <label for="birthdate">Ngày sinh</label>
+                                                <input type="date" class="form-control"
+                                                        name="birthdate" required>
+                                            </div> *@
+
+                                            <div class="form-group">
+                                                <label for="address">Địa chỉ</label>
+                                                <div class="input-group mb-3">
+                                                    <input type="text" class="form-control"
+                                                           asp-for="Address" placeholder="Nhập Địa chỉ" value="18 Phạm Văn Hai"
+                                                           required>
+                                                    <div class="input-group-append">
+                                                        <div class="input-group-text">
+                                                            <span class="fas fa-map-marker-alt"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <!-- /.col -->
+                                                <div class="col-4">
+                                                    <button type="submit"
+                                                            class="btn btn-primary btn-block">
+                                                        Đăng
+                                                        ký
+                                                    </button>
+                                                </div>
+                                                <br />
+                                                    <br />
+                                                <!-- /.col -->
+                                            </div>
+                                        </form>
+
+                                        <a asp-controller="Home" asp-action="Login" class="text-center" data-bs-dismiss="modal" style="text-decoration: none;">
+                                            Tôi đã có
+                                            tài khoản
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- Nội dung Quên mật khẩu -->
+                                <div class="tab-pane fade" id="forgot" role="tabpanel"
+                                     aria-labelledby="forgot-tab">
+                                    <div class="card-body">
+                                        <p class="login-box-msg">
+                                            Nhập Email để lấy lại mật khẩu
+                                            nếu quên.
+                                        </p>
+                                        <form action="recover-password.html" method="post">
+                                            <div class="input-group mb-3">
+                                                <input type="email" class="form-control"
+                                                       placeholder="Vui lòng nhập Email">
+                                                <div class="input-group-append">
+                                                    <div class="input-group-text">
+                                                        <span class="fas fa-envelope"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <button type="submit"
+                                                            class="btn btn-warning w-100">
+                                                        Gửi yêu
+                                                        cầu
+                                                    </button>
+                                                </div>
+                                                <!-- /.col -->
+                                            </div>
+                                        </form>
+                                        <p class="mt-3 mb-1">
+                                            <a href="#" data-bs-dismiss="modal" style="text-decoration: none;">Đăng nhập</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+</div>
+</div>
+@section scripts{
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+}

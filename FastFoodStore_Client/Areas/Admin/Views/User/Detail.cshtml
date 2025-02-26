@@ -1,0 +1,28 @@
+﻿@model FastFoodStore_Client.Models.User
+
+<h2 style="color:whitesmoke; text-align:center; margin-top:40px">User Details</h2>
+<table class="table">
+    <tr>
+        <th>Full Name</th>
+        <td>@Model.FullName</td>
+    </tr>
+    <tr>
+        <th>Email</th>
+        <td>@Model.Email</td>
+    </tr>
+    <tr>
+        <th>Phone Number</th>
+        <td>@Model.PhoneNumber</td>
+    </tr>
+    <tr>
+        <th>Address</th>
+        <td>@Model.Address</td>
+    </tr>
+    <tr>
+        <th>Role</th>
+        <td>@Model.Role</td>
+    </tr>
+</table>
+<br />
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>
+<a asp-area="Admin" asp-controller="User" asp-action="Update" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>

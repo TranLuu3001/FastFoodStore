@@ -1,0 +1,11 @@
+
+  {
+    "Id": "1",
+    "FullName": "JohnDoe",
+    "Password": "Admin@123",
+    "Address": "123 Main St",
+    "Role": "Admin",
+    "CreatedAt": "2024-10-15T10:15:30",
+"Email": "john@gmail.com"
+  }
+

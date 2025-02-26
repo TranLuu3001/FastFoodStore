@@ -1,0 +1,95 @@
+﻿@model IEnumerable<FastFoodStore_Client.Models.User>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "_Layout";
+}
+
+<div class="container mt-5">
+    <div class="row tm-content-row">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 tm-block-col">
+            <div class="tm-bg-primary-dark tm-block tm-block-products">
+                <div class="tm-product-table-container">
+                    <!-- Search Input -->
+                    <div class="input-group mb-3">
+                        <input type="text" id="searchInput" class="form-control" placeholder="Search User by Full Name" />
+                    </div>
+
+                    <!-- User Table -->
+                    <table class="table table-hover tm-table-small tm-product-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Full Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Phone Number</th>
+                                <th scope="col">Address</th>
+                                <th scope="col">Role</th>
+                                <th scope="col">Detail</th>
+                                <th scope="col">Update</th>
+                                <th scope="col">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var user in Model)
+                            {
+                                <tr>
+                                    <td>@user.Id</td>
+                                    <td class="user-fullname">@user.FullName</td>
+                                    <td>@user.Email</td>
+                                    <td>@user.PhoneNumber</td>
+                                    <td>@user.Address</td>
+                                    <td>@user.Role</td>
+                                    <td>
+                                        <a asp-area="Admin" asp-controller="User" asp-action="Detail" asp-route-id="@user.Id" class="tm-product-detail-link">
+                                            <i class="fas fa-info-circle" style="color: white; font-size: 20px;"></i>
+                                        </a>
+                                    </td>
+                                    @if (user.Role != "Admin")
+                                    {
+                                        <td>
+                                            <a asp-area="Admin" asp-controller="User" asp-action="Update" asp-route-id="@user.Id" class="tm-product-edit-link">
+                                                <i class="fas fa-edit" style="color: white; font-size: 20px;"></i>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a asp-area="Admin" asp-controller="User" asp-action="Delete" asp-route-id="@user.Id" class="tm-product-delete-link">
+                                                <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                                            </a>
+                                        </td>
+                                    }
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <a asp-area="Admin" asp-controller="User" asp-action="Create" class="btn btn-primary btn-block text-uppercase mb-3">
+                    Add New User
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Search functionality for User Full Name
+        document.getElementById('searchInput').addEventListener('keyup', function () {
+            var filter = this.value.toUpperCase();
+            var table = document.querySelector('.tm-product-table tbody');
+            var rows = table.getElementsByTagName('tr');
+
+            for (var i = 0; i < rows.length; i++) {
+                var fullNameCell = rows[i].getElementsByClassName('user-fullname')[0];
+                if (fullNameCell) {
+                    var textValue = fullNameCell.textContent || fullNameCell.innerText;
+                    if (textValue.toUpperCase().indexOf(filter) > -1) {
+                        rows[i].style.display = '';
+                    } else {
+                        rows[i].style.display = 'none';
+                    }
+                }
+            }
+        });
+    </script>
+}

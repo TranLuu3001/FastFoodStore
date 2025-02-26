@@ -1,0 +1,92 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #4E657A;
+}
+
+.contai {
+    width: 60%;
+    margin: 50px auto;
+    background-color: #435C70;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #FFFFFF;
+}
+
+.employee-details {
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.employee-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.employee-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.label {
+    font-weight: bold;
+    width: 150px;
+    color: #FFFFFF;
+}
+
+.value {
+    font-size: 16px;
+    text-align: right;
+    color: #FFFFFF;
+}
+
+.value img.avatar {
+    width: 161.181px;
+    height: 226.771px;
+    border-radius: 8px;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.button-group {
+    width: 50%;
+    float: right;
+    display: flex;
+    justify-content: space-between; 
+}
+
+.button-group button {
+    flex: 1;
+    margin: 0 10px; 
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.back-button {
+    font-weight: bold;
+    background-color: #f5a623;
+    color: white;
+    border: none;
+    transition: background-color 0.3s, border 0.3s;
+}
+
+.back-button:hover {
+    background-color: #435C70;
+    border: 1.5px solid #f5a623;
+    color: #f5a623;
+    transition: background-color 0.3s, border 0.3s;
+}

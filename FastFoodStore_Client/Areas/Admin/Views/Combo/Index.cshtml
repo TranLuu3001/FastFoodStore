@@ -1,0 +1,113 @@
+﻿@model IEnumerable<FastFoodStore_Client.Models.Combo>
+
+@{
+    Layout = "_Layout";
+}
+
+@section Css {
+    <style>
+        a {
+            color: white !important;
+        }
+
+            a:hover {
+                color: #ddd !important;
+            }
+
+        .tm-product-table a {
+            color: white !important;
+        }
+
+            .tm-product-table a:hover {
+                color: #ddd !important;
+            }
+
+        .tm-bg-primary-dark.tm-block.tm-block-products {
+            width: 100% !important;
+            box-sizing: border-box;
+        }
+
+        .tm-product-table-container {
+            box-sizing: border-box;
+        }
+    </style>
+}
+
+<div class="container mt-5">
+    <div class="row tm-content-row">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 tm-block-col">
+            <div class="tm-bg-primary-dark tm-block tm-block-products">
+                <div class="tm-product-table-container">
+                    <!-- Search Input -->
+                    <div class="input-group mb-3">
+                        <input type="text" id="searchInput" class="form-control" placeholder="Search Combo" />
+                    </div>
+
+                    <!-- Combo Table -->
+                    <table class="table table-hover tm-table-small tm-product-table" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th scope="col">COMBO NAME</th>
+                                <th scope="col">DESCRIPTION</th>
+                                <th scope="col">PRICE</th>
+                                <th scope="col">PICTURE</th>
+                                <th scope="col">ACTIONS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var x in Model)
+                            {
+                                <tr>
+                                    <td class="tm-product-name">@x.ComboName</td>
+                                    <td>@x.Description</td>
+                                    <td>@x.Price <span>đ</span></td>
+                                    <td>
+                                        <a asp-area="Admin" asp-controller="Combo" asp-action="Details" asp-route-id="@x.ComboId">
+                                            <img src="~/img/food_item/@x.ImageURL" alt="@x.ComboName" width="50">
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a asp-area="Admin" asp-controller="Combo" asp-action="Edit" asp-route-id="@x.ComboId" class="tm-product-edit-link">
+                                            <i class="fas fa-edit" style="color: white; font-size: 20px;"></i>
+                                        </a>
+                                        <a asp-area="Admin" asp-controller="Combo" asp-action="Delete" asp-route-id="@x.ComboId" class="tm-product-delete-link">
+                                            <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Table container -->
+                <br />
+                <a asp-area="Admin" asp-controller="Combo" asp-action="Create" class="btn btn-primary btn-block text-uppercase mb-3">
+                    Add New Combo
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Search functionality for Combo Name
+        document.getElementById('searchInput').addEventListener('keyup', function () {
+            var filter = this.value.toUpperCase();
+            var table = document.querySelector('.tm-product-table tbody');
+            var rows = table.getElementsByTagName('tr');
+
+            for (var i = 0; i < rows.length; i++) {
+                var comboNameCell = rows[i].getElementsByClassName('tm-product-name')[0];
+                if (comboNameCell) {
+                    var textValue = comboNameCell.textContent || comboNameCell.innerText;
+                    if (textValue.toUpperCase().indexOf(filter) > -1) {
+                        rows[i].style.display = '';
+                    } else {
+                        rows[i].style.display = 'none';
+                    }
+                }
+            }
+        });
+    </script>
+}

@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trang Admin</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+    <!-- https://fonts.google.com/specimen/Roboto -->
+    <link rel="stylesheet" href="~/cssAdmin/fontawesome.min.css">
+    <!-- https://fontawesome.com/ -->
+    <link rel="stylesheet" href="~/cssAdmin/bootstrap.min.css">
+    <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="~/cssAdmin/templatemo-style.css">
+    <!--
+    Product Admin CSS Template
+    https://templatemo.com/tm-524-product-admin
+    -->
+    @RenderSection("Css", required: false)
+</head>
+
+<body id="reportsPage">
+    <div class="" id="home">
+        <nav class="navbar navbar-expand-xl">
+            <div class="container h-100">
+                <a class="navbar-brand" href="Admin.html">
+                    <h1 class="tm-site-title mb-0"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Fast Food Store Management</a></h1>
+                </a>
+                <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars tm-nav-icon"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto h-100">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                <i class="fas fa-tachometer-alt"></i>
+                                Statistical
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>   
+                        <li class="nav-item dropdown">
+
+                            <a class="nav-link dropdown-toggle" asp-area="Admin" asp-controller="Home" asp-action="Index" id="navbarDropdown" role="button" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
+                                <i class="far fa-file-alt"></i>
+                                <span>
+                                    Management <i class="fas fa-angle-down"></i>
+                                </span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="User" asp-action="Index">User Management</a>
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="FoodItem" asp-action="Index">Food Management</a>
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Combo" asp-action="Index">Combo Management</a>
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Order" asp-action="Index">Delivery Management</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-cog"></i>
+                                <span>
+                                    Setting <i class="fas fa-angle-down"></i>
+                                </span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Home" asp-action="Detail">Your Account</a>
+                                <a class="dropdown-item" href="#">Setting</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        @{
+                            var adId = Context.Session.GetString("AdminId");
+                            var adName = Context.Session.GetString("AdminName");
+                        }
+                        <li class="nav-item">
+                            <a class="nav-link d-block" asp-area="Admin" asp-controller="Home" asp-action="Login">
+                                Hello: @adName <b>Logout</b>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </nav>
+@RenderBody()
+        <footer class="tm-footer row tm-mt-small">
+            <div class="col-12 font-weight-light">
+                <p class="text-center text-white mb-0 px-4 small">
+                    Copyright &copy; <b>2024</b> All rights reserved.
+
+                    Design: <a rel="nofollow noopener" href="http://anhhoangtranluu.xyz/" class="tm-footer-link">TranLuu</a>
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="~/jsAdmin/jquery-3.3.1.min.js"></script>
+    <!-- https://jquery.com/download/ -->
+    <script src="~/jsAdmin/moment.min.js"></script>
+    <!-- https://momentjs.com/ -->
+    <script src="~/jsAdmin/Chart.min.js"></script>
+    <!-- http://www.chartjs.org/docs/latest/ -->
+    <script src="~/jsAdmin/bootstrap.min.js"></script>
+    <!-- https://getbootstrap.com/ -->
+    <script src="~/jsAdmin/tooplate-scripts.js"></script>
+    <script>
+        Chart.defaults.global.defaultFontColor = 'white';
+        let ctxLine,
+            ctxBar,
+            ctxPie,
+            optionsLine,
+            optionsBar,
+            optionsPie,
+            configLine,
+            configBar,
+            configPie,
+            lineChart;
+        barChart, pieChart;
+        // DOM is ready
+        $(function () {
+            drawLineChart(); // Line Chart
+            drawBarChart(); // Bar Chart
+            drawPieChart(); // Pie Chart
+
+            $(window).resize(function () {
+                updateLineChart();
+                updateBarChart();
+            });
+        })
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

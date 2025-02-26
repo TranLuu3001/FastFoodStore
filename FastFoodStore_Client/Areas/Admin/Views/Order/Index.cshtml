@@ -1,0 +1,67 @@
+﻿@model IEnumerable<FastFoodStore_Client.Models.Order>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "_Layout";
+}
+
+<div class="container mt-5">
+    <div class="row tm-content-row">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 tm-block-col">
+            <div class="tm-bg-primary-dark tm-block tm-block-products">
+                <div class="tm-product-table-container">
+                    <!-- Search Input -->
+                    <div class="input-group mb-3">
+                        <input type="text" id="searchInput" class="form-control" placeholder="Search Order by Status" />
+                    </div>
+
+                    <!-- Order Table -->
+                    <table class="table table-hover tm-table-small tm-product-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Order ID</th>
+                                <th scope="col">User ID</th>
+                                <th scope="col">Order Status</th>
+                                <th scope="col">Total Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var order in Model)
+                            {
+                                <tr>
+                                    <td>@order.OrderId</td>
+                                    <td>@order.Users</td>
+                                    <td class="order-status">@order.OrderStatus</td>
+                                    <td>@order.TotalAmount</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Search functionality for Order Status
+        document.getElementById('searchInput').addEventListener('keyup', function () {
+            var filter = this.value.toUpperCase();
+            var table = document.querySelector('.tm-product-table tbody');
+            var rows = table.getElementsByTagName('tr');
+
+            for (var i = 0; i < rows.length; i++) {
+                var statusCell = rows[i].getElementsByClassName('order-status')[0];
+                if (statusCell) {
+                    var textValue = statusCell.textContent || statusCell.innerText;
+                    if (textValue.toUpperCase().indexOf(filter) > -1) {
+                        rows[i].style.display = '';
+                    } else {
+                        rows[i].style.display = 'none';
+                    }
+                }
+            }
+        });
+    </script>
+}

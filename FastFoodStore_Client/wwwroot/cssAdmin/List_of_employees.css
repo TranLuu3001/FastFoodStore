@@ -1,0 +1,101 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #4E657A;
+}
+
+.contai {
+    width: 80%;
+    margin: 50px auto;
+    background-color: #435C70;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.search-bar {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.search-bar input {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.employee-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #ffffff;
+}
+
+.employee-table th, .employee-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.employee-table th {
+    background-color: #ddd;
+    color: black;
+    position: sticky; /* Giữ phần header cố định */
+    top: 0; /* Cố định tại đỉnh của bảng khi cuộn */
+    /* z-index: 1; */
+}
+
+/* .employee-table tr:nth-child(even) {
+    background-color: #4E657A;
+} */
+
+.employee-table tr:hover {
+    background-color: #f5a623;
+}
+
+.avatar {
+    width: 50px;      
+    height: 50px;     
+    border-radius: 50%;
+    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.add-button {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #f5a623;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    border: 1.5px solid #f5a623;
+    transition: background-color 0.3s, border 0.3s;
+}
+.add-button:hover {
+    background-color: #435C70;
+    color: #f5a623;
+    transition: background-color 0.3s, border 0.3s;
+}
+.employee-container {
+    max-height: 400px; /* Chiều cao tối đa của danh sách */
+    overflow-y: auto; /* Cho phép cuộn dọc */
+    border: 1px solid #ddd; /* Viền cho phần chứa */
+    border-radius: 5px; /* Bo góc */
+}
